@@ -1,8 +1,10 @@
-let personName = 'John'
+let personName:string = 'John'
 console.log(personName)
 
-let age = 20
+let age: number = 20
 console.log(age)
 
-let hasPets = true
+let hasPets:boolean = true
 console.log(hasPets)
+
+let otherPerson: any
