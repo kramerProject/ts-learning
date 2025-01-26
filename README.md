@@ -20,3 +20,17 @@ npm init -y
 ```
 npm i -s live server
 ```
+Alterar arquivo package.json
+
+```
+"scripts": {
+"start": "live-server"
+}
+
+npm start
+```
+
+5. Monitorar mudanças automaticamente
+```
+tsc -w
+```
