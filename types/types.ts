@@ -116,6 +116,72 @@ if (typeof valor == "number") {
 
 // never
 function fail(msg: string): never {
-    throw new Error
+    throw new Error(msg)
 }
 
+const produto = {
+    nome: 'Sabão',
+    preco: 10,
+    validateProduct() {
+        if (!this.nome || this.nome.length == 0 ) {
+            fail('Needs a name')
+        }
+        if (this.preco <= 0) {
+            fail('Invalid price')
+        }
+    }
+}
+
+
+produto.validateProduct()
+
+let altura = 12
+// altura = null
+
+let alturaOp: null | number = 12
+alturaOp = null
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contato1: Contato = {
+    nome: 'Fulano',
+    tel1: '122',
+    tel2: null
+}
+
+console.log(contato1.nome)
+console.log(contato1.tel1)
+console.log(contato1.tel2)
+
+// Desafio types
+type ContaBancaria = {
+    saldo: number,
+    depositar: (valor: number) => void
+}
+
+const conta: ContaBancaria = {
+    saldo: 1000,
+    depositar(valor: number) {
+        this.saldo += valor
+    }
+}
+
+type Correntista = {
+    nome: string,
+    contaBancaria: ContaBancaria,
+    contatos: string[]
+}
+
+const newCorrentista: Correntista = {
+    nome: 'fulano',
+    contaBancaria: conta,
+    contatos: ['1', '2']
+}
+
+newCorrentista.contaBancaria.depositar(300)
+
+console.log(newCorrentista)

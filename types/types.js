@@ -83,5 +83,43 @@ else {
 }
 // never
 function fail(msg) {
-    throw new Error;
+    throw new Error(msg);
 }
+const produto = {
+    nome: 'Sabão',
+    preco: 10,
+    validateProduct() {
+        if (!this.nome || this.nome.length == 0) {
+            fail('Needs a name');
+        }
+        if (this.preco <= 0) {
+            fail('Invalid price');
+        }
+    }
+};
+produto.validateProduct();
+let altura = 12;
+// altura = null
+let alturaOp = 12;
+alturaOp = null;
+const contato1 = {
+    nome: 'Fulano',
+    tel1: '122',
+    tel2: null
+};
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+const conta = {
+    saldo: 1000,
+    depositar(valor) {
+        this.saldo += valor;
+    }
+};
+const newCorrentista = {
+    nome: 'fulano',
+    contaBancaria: conta,
+    contatos: ['1', '2']
+};
+newCorrentista.contaBancaria.depositar(300);
+console.log(newCorrentista);
